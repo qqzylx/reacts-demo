@@ -1,8 +1,8 @@
 module.exports = {
-    entry: "./js/commentBox.js",
+    entry: "./js/index.js",
     output: {
         path: __dirname,
-        filename: "bin/[name].min.js"
+        filename: "bin/index.min.js"
     },
     module: {
         loaders: [

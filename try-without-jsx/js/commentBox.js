@@ -5,8 +5,6 @@ import React, {
     createElement as e
 } from 'react';
 
-import ReactDom from 'react-dom';
-
 import CommentForm from './commentForm';
 import CommentList from './commentList';
 
@@ -31,7 +29,4 @@ var CommentBox = c({
     }
 });
 
-ReactDom.render(
-    e(CommentBox),
-    document.getElementById('content')
-);
+module.exports = CommentBox;
