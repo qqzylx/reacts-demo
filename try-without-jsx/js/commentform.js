@@ -22,6 +22,20 @@ var CommentForm = c({
             text: e.target.value
         });
     },
+    _handleSubmit: function(e) {
+        e.preventDefault();
+        var author = this.state.author.trim();
+        var text = this.state.text.trim();
+        if (!text || ! author) {
+            return;
+        }
+
+        // TODO: send request to server
+        this.setState({
+            author: '',
+            text: ''
+        });
+    },
     render: function () {
         const name = e('input', {
             type: 'text',
@@ -42,11 +56,12 @@ var CommentForm = c({
             value: 'Post'
         });
 
-        const div = e('div', {
-            className: 'commentForm'
+        const form = e('form', {
+            className: 'commentForm',
+            onSubmit: this._handleSubmit
         }, name, comment, submit);
 
-        return div;
+        return form;
     }
 });
 
