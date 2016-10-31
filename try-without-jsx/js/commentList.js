@@ -8,7 +8,7 @@ import React, {
 import Comment from './comment';
 
 
-var ComponentList = c({
+var CommentList = c({
     render: function () {
         var comments = [];
         var data = this.props.data;
@@ -30,4 +30,4 @@ var ComponentList = c({
     }
 });
 
-module.exports = ComponentList;
+module.exports = CommentList;

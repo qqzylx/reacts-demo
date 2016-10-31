@@ -5,14 +5,29 @@ import React, {
     createElement as e
 } from 'react';
 
-var ComponentForm = c({
+var CommentForm = c({
     render: function () {
+        const name = e('input', {
+            type: 'text',
+            placeholder: 'Your name'
+        });
+
+        const comment = e('input', {
+            type: 'text',
+            placeholder: 'Say something...'
+        });
+
+        const submit = e('input', {
+            type: 'submit',
+            value: 'Post'
+        });
+
         const div = e('div', {
             className: 'commentForm'
-        }, 'Hello world! I am a CommentForm without JSX');
+        }, name, comment, submit);
 
         return div;
     }
 });
 
-module.exports = ComponentForm;
+module.exports = CommentForm;
