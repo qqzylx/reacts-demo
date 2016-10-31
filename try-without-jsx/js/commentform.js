@@ -6,15 +6,35 @@ import React, {
 } from 'react';
 
 var CommentForm = c({
+    getInitialState: function () {
+        return {
+            author: '',
+            text: ''
+        };
+    },
+    _handleAuthorChange: function (e) {
+        this.setState({
+            author: e.target.value
+        });
+    },
+    _handleTextChange: function (e) {
+        this.setState({
+            text: e.target.value
+        });
+    },
     render: function () {
         const name = e('input', {
             type: 'text',
-            placeholder: 'Your name'
+            placeholder: 'Your name',
+            value: this.state.author,
+            onChange: this._handleAuthorChange
         });
 
         const comment = e('input', {
             type: 'text',
-            placeholder: 'Say something...'
+            placeholder: 'Say something...',
+            value: this.state.text,
+            onChange: this._handleTextChange
         });
 
         const submit = e('input', {
