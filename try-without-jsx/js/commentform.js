@@ -30,6 +30,11 @@ var CommentForm = c({
             return;
         }
 
+        this.props.onCommentSubmit({
+            author: author,
+            text: text
+        });
+
         // TODO: send request to server
         this.setState({
             author: '',

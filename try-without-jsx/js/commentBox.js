@@ -43,12 +43,27 @@ var CommentBox = c({
         const commentList = e(CommentList, {
             data: this.state.data
         });
-        const commentForm = e(CommentForm);
+        const commentForm = e(CommentForm, {
+            onCommentSubmit: this._handleCommentSubmit
+        });
         const div = e('div', {
             className: 'commentBox'
         }, h1, commentList, commentForm);
 
         return div;
+    },
+    _handleCommentSubmit: function (comment) {
+        //TODO: submit to server
+        if (comment) {
+            var curLen = simulateData.length;
+            simulateData[curLen] = {
+                id: curLen + 1,
+                author: comment.author,
+                text: comment.text
+            };
+
+            this.setState({data: simulateData});
+        }
     }
 });
 
