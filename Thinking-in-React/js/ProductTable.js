@@ -16,7 +16,11 @@ var ProductTable = c({
         const thead = e('thead', {}, trTitle);
         var rows =[];
         var lastCategory = null;
+        var self = this;
         this.props.products.forEach(function (product) {
+            if (product.name.indexOf(self.props.filterText) === -1 || (!product.stocked && self.props.onlyInStock)) {
+                return;
+            }
             if (product.category !== lastCategory) {
                 var productCategoryRow = e(ProductCategoryRow, {
                     category: product.category,
