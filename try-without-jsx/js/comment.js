@@ -5,8 +5,6 @@ import React, {
     createElement as e
 } from 'react';
 
-import ReactDom from 'react-dom';
-
 var Comment = c({
     render: function () {
         const h2 = e('h2', {
